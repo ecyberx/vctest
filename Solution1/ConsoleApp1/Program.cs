@@ -80,30 +80,47 @@ namespace ConsoleTestApp
         {
             Console.WriteLine("Capture screen tool");
 
-            String strFile;
+            String strFile="";
+            String strDir="";
+            String strDest;
+           
             DateTime dt = DateTime.Now;
 
-            if( args.Length > 0 )
+            for(int i=0;i< args.Length; ++i)
             {
-                strFile = args[0];
-            } else
-            {
-                strFile = "clip_" + dt.ToString("yyyyMMddHHmmss")+".bmp";
+                if (args[i] == "-dir")
+                {
+                    if(i + 1 >= args.Length)
+                    {
+                        Console.WriteLine("illegal args.");
+                        return;
+                    }
+                    ++i;
+                    strDir = args[i];
+                }else
+                {
+                    strFile = args[i];
+                }
             }
-
-
+            
+            if( strFile=="")
+            {
+                strFile = "clip_" + dt.ToString("yyyyMMddHHmmss") + ".bmp";
+            }
+            strDest = strDir + strFile;
+            
             MyApplication app = new MyApplication();
 
             app.captureScreens();
 
-            //app.captureScreen();
-            if( !app.saveScreen(strFile) )
+            if( !app.saveScreen(strDest) )
             {
-                Console.WriteLine("failed save to: "+strFile);
+                Console.WriteLine("failed save to: "+strDest);
+                return;
 
             } else
             {
-                Console.WriteLine("screen captured: " + strFile);
+                Console.WriteLine("screen captured: " + strDest);
             }
 
             Console.WriteLine("complete.");
