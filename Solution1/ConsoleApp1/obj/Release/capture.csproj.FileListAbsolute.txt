@@ -16,3 +16,10 @@ C:\Users\ander\source\Solution1\ConsoleApp1\bin\Release\CaptureTool.pdb
 C:\Users\ander\source\Solution1\ConsoleApp1\obj\Release\capture.csproj.CoreCompileInputs.cache
 C:\Users\ander\source\Solution1\ConsoleApp1\obj\Release\CaptureTool.exe
 C:\Users\ander\source\Solution1\ConsoleApp1\obj\Release\CaptureTool.pdb
+C:\Users\ander\source\work\Solution1\ConsoleApp1\bin\Release\CaptureTool.exe.config
+C:\Users\ander\source\work\Solution1\ConsoleApp1\bin\Release\CaptureTool.exe
+C:\Users\ander\source\work\Solution1\ConsoleApp1\bin\Release\CaptureTool.pdb
+C:\Users\ander\source\work\Solution1\ConsoleApp1\obj\Release\capture.csprojResolveAssemblyReference.cache
+C:\Users\ander\source\work\Solution1\ConsoleApp1\obj\Release\capture.csproj.CoreCompileInputs.cache
+C:\Users\ander\source\work\Solution1\ConsoleApp1\obj\Release\CaptureTool.exe
+C:\Users\ander\source\work\Solution1\ConsoleApp1\obj\Release\CaptureTool.pdb

@@ -8,6 +8,7 @@ using System.Drawing;
 using System.Windows.Forms;
 using System.Drawing.Printing;
 using System.Reflection;
+using System.Runtime.InteropServices;
 
 namespace ConsoleTestApp
 {
@@ -54,9 +55,20 @@ namespace ConsoleTestApp
 
         }
 
-        public void saveScreen(String str)
+        public bool saveScreen(String str)
         {
-            memoryImage.Save(str);
+            try {
+                memoryImage.Save(str);
+            }
+            catch (ArgumentNullException)
+            {
+                return false;
+            }
+            catch (ExternalException)
+            {
+                return false;
+            }
+            return true;
         }
     }
 
@@ -76,17 +88,23 @@ namespace ConsoleTestApp
                 strFile = args[0];
             } else
             {
-                strFile = "clip_" + dt.ToString("yyyymmddhhmmss")+".bmp";
+                strFile = "clip_" + dt.ToString("yyyyMMddHHmmss")+".bmp";
             }
 
-            Console.WriteLine("screen captured: " + strFile);
 
             MyApplication app = new MyApplication();
 
             app.captureScreens();
 
             //app.captureScreen();
-            app.saveScreen(strFile);
+            if( !app.saveScreen(strFile) )
+            {
+                Console.WriteLine("failed save to: "+strFile);
+
+            } else
+            {
+                Console.WriteLine("screen captured: " + strFile);
+            }
 
             Console.WriteLine("complete.");
         
